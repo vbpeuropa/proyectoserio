@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!-- Salida del log por pantalla -->
+<appender name = "STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+<layout class = "ch.qos.logback.classic.PatternLayout"></layout>
+<Pattern>
+%d{dd/MM/YYYY HH:mm:ss %-5level %logger{36} -%msg%n}
+</Pattern>
+</appender>
+<!-- Mostrar informacion de las clases de Spring en pantalla -->
+<logger name = "org.springframework" level="debug" additivity="false">
+	<appender-ref ref="STDOUT"/>
+	</logger>
+	
+	<!-- Mostrar informacion de las clases de nuestro codigo en pantalla -->
+<logger name = "com.pixelware" level="debug" additivity="false">
+	<appender-ref ref="STDOUT"/>
+	</logger>
+	
+	<!-- Mostrar todos los errores en pantalla -->
+<root level = "error">
+	<appender-ref ref="STDOUT"/>
+	</root>
+</configuration>
